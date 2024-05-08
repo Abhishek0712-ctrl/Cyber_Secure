@@ -11,7 +11,7 @@ const TEAM_DATA = [
   {
     Name: "Arun Sharma",
     Location: "Jaipur, India",
-    ProfileImg: "/images/team/arun.jpg",
+    ProfileImg: "/images/Team/arun.jpg",
     About: [
       "Backend Engineer",
       "B.Tech Final Year Student @SKIT Jaipur",
@@ -68,7 +68,7 @@ const TEAM_DATA = [
     Name: "Ashvani Khandelwal ",
     Location: "Jaipur, India",
     ProfileImg:
-      "/images/team/Ashvani.jpeg",
+      "/images/Team/Ashvani.jpeg",
     About: ["Frontend Developer", "B.Tech Final Year Student @SKIT Jaipur"],
     Skills: [
       "Python",
