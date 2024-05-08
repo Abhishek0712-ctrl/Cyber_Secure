@@ -35,7 +35,11 @@ app.use(
 	credentials:true
     })
 );
-
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Internal Server Error' });
+});
 app.use("/auth", authRoutes);
 app.use("/", webRoutes)
 
