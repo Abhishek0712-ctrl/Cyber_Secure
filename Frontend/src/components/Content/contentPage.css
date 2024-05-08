@@ -1,0 +1,25 @@
+.contentContainer{
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+}
+h1, h2, h3 {
+    color: #415364;
+    margin-bottom: 10px;
+}
+p{
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    /* margin-bottom: 5px; */
+}
+li{
+    line-height: 2.0;
+    margin-left: 30px;
+}
+.content{
+    text-align: left;    
+}
+.research a{
+    color: black;
+}

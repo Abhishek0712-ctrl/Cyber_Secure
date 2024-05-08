@@ -1,0 +1,47 @@
+.heading-part{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
+    font-weight: 180;
+    font-size: medium;
+}
+
+.container-with-margin{
+    margin-top: 40px;
+}
+
+@media (max-width: 959.95px) {
+    .heading-grid {
+      order: -1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animated-text.slide-in {
+    animation: slideIn 1s ease forwards;
+  }
+  
+  .animated-text.fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+  

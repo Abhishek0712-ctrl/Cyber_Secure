@@ -1,0 +1,94 @@
+/* discuss.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 50px; /* Adjust left and right margin as needed */
+}
+
+.title {
+    align-items: center;
+    text-align: left;
+    width: 100%; /* Ensure title takes full width */
+}
+
+.discuss-list {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+    width: 80%; /* Set fixed width for discuss cells */
+}
+
+.discuss {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0; /* Adjust top and bottom margin as needed */
+    width: 100%; /* Take full width of discuss-list container */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.discuss-link{
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #007bff; /* Change background color as needed */
+    color: white; /* Change text color as needed */
+    font-size: 20px;
+    margin-right: 10px;
+  }
+/* search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 70%; /* Set width of search bar */
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex: 1; /* Expand input to fill available space */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* create button */
+.create-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: black; /* Green color */
+    color: #fff;
+    cursor: pointer;
+    margin-left: 3%; /* Push the button to the right */
+}
+
+.create-button:hover {
+    background-color: #218838; /* Darker shade of green on hover */
+}

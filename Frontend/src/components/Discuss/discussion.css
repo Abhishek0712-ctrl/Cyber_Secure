@@ -1,0 +1,47 @@
+
+.discussion-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.discussion-title {
+    text-align: center;
+    color: #333;
+}
+.comment {
+    padding: 10px;
+    margin: 10px 0; /* Adjust top and bottom margin as needed */
+    width: 100%; /* Take full width of discuss-list container */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.comment_{
+    display: flex;
+    align-items: center;
+}
+.d-user-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: orangered; /* Change background color as needed */
+    color: white; /* Change text color as needed */
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .button-status{
+    display: flex;
+
+  }
+  
+.discuss-list {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+    width: 80%; /* Set fixed width for discuss cells */
+}
