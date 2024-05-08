@@ -221,7 +221,7 @@ const Content = () => {
           < br />
           <h1>Reserch Papers</h1>
           <div className="research-papers">
-            <Ol>
+            <ol>
               {research.map(rese => (
                 <li>
 
