@@ -11,6 +11,7 @@ router.get("/login/failed", (req, res)=>{
 
 
 router.get("/login/success", (req, res)=>{
+console.log("nro", req.user);
     if(req.user){
         sqlQuery = `SELECT * FROM user where id = "${req.user.id}";`;
         connection.query(sqlQuery, (err, result)=>{
