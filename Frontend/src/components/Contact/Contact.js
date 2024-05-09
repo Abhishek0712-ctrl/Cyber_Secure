@@ -214,6 +214,7 @@ const Contact = () => {
               ),
             }}
             label="Contact Number"
+            type="number"
             helperText="Enter 10 Digit Mobile Number"
             onChange={handleChange}
             name="phoneNo"
