@@ -38,9 +38,11 @@ passport.use(
     ),
 );
 passport.serializeUser((user, done)=>{
+    console.log("user",user);
     done(null, user);
 })
 passport.deserializeUser((user, done)=>{
+    console.log("desero",user);
     done(null, user)   
 
 })
