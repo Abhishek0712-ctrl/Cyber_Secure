@@ -11,14 +11,15 @@ passport.use(
             callbackURL:"/auth/google/callback",
             scope:["profile", "email"]
         },
-        function (accessToken, refreshToken, profile,  callback){
+        async function (accessToken, refreshToken, profile,  callback){
             try{
                 if(profile){
+                    console.log("my profile : ",profile);
                     var id = profile.id;
                     var displayName = profile.displayName;
                     var email = profile.emails[0].value
                     sqlQuery = `INSERT IGNORE INTO user (id, username, email) VALUES ("${id}", "${displayName}", "${email}");`
-                    new Promise((resolve, reject) => {
+                    await new Promise((resolve, reject) => {
                     database.query(sqlQuery, function (error, result, fields) {
                         if (error) {
                             console.log("error here", error)
