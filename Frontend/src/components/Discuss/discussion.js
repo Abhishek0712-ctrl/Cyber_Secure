@@ -93,11 +93,12 @@ const Discussion = () => {
                     setDiscussion(discussionItem);
                     if(fulldiscuss[0]){
                         fulldiscuss[0].map((item)=>{
+                            console.log(item)
                             commentsList.push({
                                 "comment_id":item.comment_id,
                                 "discuss_id":item.discuss_id,
                                 "comment_user_id" : item.comment_user_id,
-                                "comment_create_at":item.commet_create_at,
+                                "commet_created_at":item.commet_created_at,
                                 "content":item.content
                             })
                         })
@@ -117,7 +118,7 @@ const Discussion = () => {
     const handleChange = (e) => {
         setMsgParam({ ...msgParam, [e.target.name]: e.target.value });
     }
-
+    console.log(comments)
     return (
         <>
         <Helmet>
@@ -141,12 +142,15 @@ const Discussion = () => {
                         {alert.msg}
                     </Alert>
                 )}
+                {console.log("arnafdd", comments)}
                 {comments.map(comment => (
                     <div key={comment.id} className="comment">
                         <div className='comment_'>
                             <span className = "d-user-icon">{comment.comment_user_id[0]}  </span>
                             <span>{comment.content}</span>
                         </div>
+                        <span>{comment.commet_created_at}</span>
+
                         {user.type === 'admin'?
                         <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => handleDelete(comment.comment_id)}>
                             Delete
