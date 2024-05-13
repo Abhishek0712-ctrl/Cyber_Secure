@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Helmet } from "react-helmet-async";
 
 
+
 const CreateNew = () => {
   const [alert, setAlert] = useState({});
   const [user, setUser] = useState('');
@@ -18,16 +19,15 @@ const CreateNew = () => {
       console.log(err);
     }
   };
-  // const [topic, setTopic] = useState('');
-  // const [description, setDescription] = useState('');
-  // const [username, setUsername] = useState('');
+
   useEffect(() => {
 		getUser();
 	}, []);
   const [msgParam, setMsgParam] = useState({
     title: "",
     description: "",
-    user_id : ""
+    user_id : "",
+    created_at : new Date()
   });
   const handleSave = (e) => {
     e.preventDefault();

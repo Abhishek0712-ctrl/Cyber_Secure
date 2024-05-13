@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, Alert } from '@mui/material';
 import { Helmet } from "react-helmet-async";
-const Discuss = () => {
+const Discuss = (user) => {
     const [discussions, setDiscussions] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDiscussions, setFilteredDiscussions] = useState([]);
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
     const [alert, setAlert] = useState({});
-    var user_type = "";
+    const [ago, setAgo] = useState({})
+    var user_type = user.user.type;
     const handleDelete = async (id) => {
         // e.preventDefault();
         axios.post(`${process.env.REACT_APP_API_URL}/delete-disscuss`, {"id":id})
@@ -31,26 +32,14 @@ const Discuss = () => {
                 });
             })
     }
-    const getUser = async () => {
-        try {
-            const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
-            const { data } = await axios.get(url, { withCredentials: true });
-            if(data.result[0]){
-                if(data.result[0].type){
-                    user_type=data.result[0].type
-                }
-            }
-            setUser(data.result[0]);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    const [time, setTime] = useState('');
+   
     useEffect(() => {
         // For demonstration purposes, setting a static list of discussions
-        getUser();
+
         const fetchData = async () => {
             try {
-                axios
+               await axios
                     .get(`${process.env.REACT_APP_API_URL}/discuss`)
                     .then((response) => {
                         var staticDiscussions = response.data
@@ -64,25 +53,26 @@ const Discuss = () => {
             }
         }
         fetchData();
+        
     }, []);
     useEffect(() => {
         // Filter discussions based on search term
         const filtered = discussions.filter(discussion =>
             discussion.title.toLowerCase().includes(searchTerm.toLowerCase())
+            
         );
         setFilteredDiscussions(filtered);
+
     }, [searchTerm, discussions]);
+    console.log(filteredDiscussions)
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
+
     };
     return (
         <>
         <Helmet>
         <title>Discuss | Cyber Security Awarness</title>
-        <meta
-          name="description"
-          content="We are a team of students who are enthusiastic developers. We are trying to create a platform for basic understanding of the Cyber Security"
-        />
       </Helmet>
         <div className="container">
             <h2 className="title">Discuss List</h2>
@@ -108,8 +98,9 @@ const Discuss = () => {
                             <span className="user-icon">{discussion.user_id[0]}  </span>
                             <span>{discussion.title}</span>
                         </Link>
+                            <span>{discussion.created_at}</span>
                        
-                        {user.type === 'admin'?
+                        {user_type === 'admin'?
                             <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => handleDelete(discussion.id)}>
                                 Delete
                             </Button>
