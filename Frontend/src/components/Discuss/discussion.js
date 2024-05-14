@@ -7,25 +7,19 @@ import { Button, Alert } from '@mui/material';
 import axios from 'axios';
 import { Helmet } from "react-helmet-async";
 import './discussion.css'
-const Discussion = () => {
+const Discussion = (user) => {
     const [alert, setAlert] = useState({});
     const { id } = useParams();
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
+    // setUser(user.user.type)
+    console.log(user.user);
+    var user_type = user.user.type
     // to post the comment
     const [msgParam, setMsgParam] = useState({
         content :"",
         user_id : "",
         discuss_id : ""
     })
-    const getUser = async () => {
-        try {
-            const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
-            const { data } = await axios.get(url, { withCredentials: true });
-            setUser(data.result[0]);
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     const handleDelete = async (id) => {
         axios.post(`${process.env.REACT_APP_API_URL}/delete-comment`, {"id":id})
@@ -77,7 +71,7 @@ const Discussion = () => {
     const [comments, setComments] = useState([]);
     useEffect(() => {
         // to get the current user;
-        getUser();
+        // getUser();
         const fetchData = async () => {
             try{
                 await axios.get(`${process.env.REACT_APP_API_URL}/discuss-id/${id}`)
@@ -151,7 +145,7 @@ const Discussion = () => {
                         </div>
                         <span>{comment.commet_created_at}</span>
 
-                        {user.type === 'admin'?
+                        {user_type === 'admin'?
                         <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => handleDelete(comment.comment_id)}>
                             Delete
                         </Button>
