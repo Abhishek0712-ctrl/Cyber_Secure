@@ -11,7 +11,6 @@ const Discuss = (user) => {
     const [filteredDiscussions, setFilteredDiscussions] = useState([]);
     // const [user, setUser] = useState(null);
     const [alert, setAlert] = useState({});
-    const [ago, setAgo] = useState({})
     var user_type = user.user.type;
     const handleDelete = async (id) => {
         // e.preventDefault();
@@ -32,11 +31,9 @@ const Discuss = (user) => {
                 });
             })
     }
-    const [time, setTime] = useState('');
    
     useEffect(() => {
         // For demonstration purposes, setting a static list of discussions
-
         const fetchData = async () => {
             try {
                await axios
